@@ -13,6 +13,8 @@ def get_db_connection():
     return duckdb.connect(database=':memory:')
 
 db = get_db_connection()
+db.execute("INSTALL httpfs;")
+db.execute("LOAD httpfs;")
 
 @st.cache_data
 def get_all_timestamps():
