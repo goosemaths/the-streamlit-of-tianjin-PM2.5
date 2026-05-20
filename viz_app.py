@@ -25,9 +25,11 @@ def get_static_data():
     df = pd.read_csv("grid_static_attributes.csv")
     return df.drop_duplicates(subset=['grid_id'])
 
+FILE_URL = "https://github.com/goosemaths/the-streamlit-of-tianjin-PM2.5/releases/download/v1.0/tianjin_pm25_predictions.parquet"
+
 def get_data_for_hour(selected_time):
     # 读取当前小时数据并强制去重
-    query = f"SELECT id, v FROM 'tianjin_pm25_predictions.parquet' WHERE dt = '{selected_time}'"
+    query = f"SELECT id, v FROM '{FILE_URL}' WHERE dt = '{selected_time}'"
     df = db.execute(query).df()
     return df.drop_duplicates(subset=['id'])
 
