@@ -1,0 +1,14 @@
+numpy
+pandas
+geopandas
+shapely
+scipy
+scikit-learn
+osmnx
+joblib
+tqdm
+torch
+tensorboard
+streamlit
+pydeck
+duckdb
